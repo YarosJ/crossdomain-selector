@@ -1,0 +1,33 @@
+{
+  "name": "crossdomain-selector",
+  "version": "1.0.0",
+  "description": "Gets a selector from another site by screenshot",
+  "keywords": [
+    "selector",
+    "crossdomain",
+    "puppeteer",
+    "screeenshot"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Yaroslaw Zhuk",
+    "email": "jaroslawjuk@outlook.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YarosJ/crossdomain-selector"
+  },
+  "engines": {
+    "node": "^10.13.0"
+  },
+  "dependencies": {
+    "puppeteer": "^1.10.0"
+  },
+  "files": [
+    "LICENSE",
+    "History.md",
+    "Readme.md",
+    "index.js",
+    "lib/"
+  ]
+}
