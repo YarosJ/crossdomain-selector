@@ -1,6 +1,6 @@
 {
   "name": "crossdomain-selector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gets a selector from another site by screenshot",
   "keywords": [
     "selector",
