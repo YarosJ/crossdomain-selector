@@ -1,5 +1,29 @@
 # README
 
+This package allows you to get an element selector from another site using the screenshot, which is not possible with a cross-domain iframe due to browser security restrictions.
+
+## Usage
+
+Import package:
+
+    import { makeScreenshot, getSelector } from 'crossdomain-selector';
+
+Make screenshot:
+
+    const screenshot = await makeScreenshot('https://www.npmjs.com', './public/screenshot.png');
+
+Then you can display this screenshot on the client and get click coordinates on an screenshot with something like this:
+
+    <img src='[Your Server]/screenshot.png' alt="Error" onClick={ e => {
+      const coordinates = { x: e.pageX, y: e.pageY };
+      // Send on server coordinates
+    }}/>
+
+Now you can get a selector on the received coordinates on the server:
+
+    const coordinates = [50, 120]; // Received from the client
+    const selector = await getSelector('https://www.npmjs.com', [50, 120]);
+
 ## License
 
 MIT License. Copyright 2018 Yaroslaw Zhuk
