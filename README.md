@@ -10,11 +10,11 @@ Import package:
 
 Make screenshot:
 
-    const screenshot = await makeScreenshot('https://www.npmjs.com', './public/screenshot.png');
+    const bufferScreenshot = await makeScreenshot('https://www.npmjs.com');
 
 Then you can display this screenshot on the client and get click coordinates on an screenshot with something like this:
 
-    <img src='[Your Server]/screenshot.png' alt="Error" onClick={ e => {
+    <img src='[Your image url]' alt="Error" onClick={ e => {
       const coordinates = { x: e.pageX, y: e.pageY };
       // Send on server coordinates
     }}/>
