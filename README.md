@@ -10,11 +10,12 @@ Import package:
 
 Make screenshot:
 
-    const bufferScreenshot = await makeScreenshot('https://www.npmjs.com');
+    const base64Screenshot = await makeScreenshot('https://www.npmjs.com');
 
 Then you can display this screenshot on the client and get click coordinates on an screenshot with something like this:
 
-    <img src='[Your image url]' alt="Error" onClick={ e => {
+    recivedBase64Image = '[You should receive it from server]'
+    <img src={`data:image/jpeg;base64,${recivedBase64Image}`} alt="Error" onClick={ e => {
       const coordinates = { x: e.pageX, y: e.pageY };
       // Send on server coordinates
     }}/>
@@ -22,7 +23,7 @@ Then you can display this screenshot on the client and get click coordinates on 
 Now you can get a selector on the received coordinates on the server:
 
     const coordinates = [50, 120]; // Received from the client
-    const selector = await getSelector('https://www.npmjs.com', [50, 120]);
+    const selector = await getSelector('https://www.npmjs.com', coordinates);
 
 ## License
 
