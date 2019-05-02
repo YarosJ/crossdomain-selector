@@ -32,7 +32,7 @@ If you use Docker you need to pass true to the methods:
     makeScreenshot('https://www.npmjs.com', true);
     getSelector('https://www.npmjs.com', coordinates, true);
 
-Important! [You should read this to make proper dockerfile] (https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-on-alpine)
+Important! [You should read this to make proper dockerfile](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-on-alpine)
 
 ## License
 
