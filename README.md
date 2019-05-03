@@ -10,27 +10,39 @@ Import package:
 
 Make screenshot:
 
-    const base64Screenshot = await makeScreenshot('https://www.npmjs.com');
+    const base64Screenshot = await makeScreenshot({ site: 'https://www.npmjs.com' });
 
 Then you can display this screenshot on the client and get click coordinates on an screenshot with something like this:
 
-    recivedBase64Image = '[You should receive it from server]'
+    recivedBase64Image = '<You should receive it from server>'
     <img src={`data:image/jpeg;base64,${recivedBase64Image}`} alt="Error" onClick={ e => {
-      const coordinates = { x: e.pageX, y: e.pageY };
+      const coordinates = { 
+          x: e.pageX - e.target.offsetLeft,
+          y: e.pageY - e.target.offsetTop,
+       };
       // Send on server coordinates
     }}/>
 
 Now you can get a selector on the received coordinates on the server:
 
-    const coordinates = [50, 120]; // Received from the client
-    const selector = await getSelector('https://www.npmjs.com', coordinates);
+    const selector = await getSelector({
+      site: 'https://www.npmjs.com', // Site to get selector
+      coordinates: [50, 120], // Received from the client
+    });
 
 ## Docker
 
-If you use Docker you need to pass true to the methods:
+If you use Docker you need to pass it in params:
 
-    makeScreenshot('https://www.npmjs.com', true);
-    getSelector('https://www.npmjs.com', coordinates, true);
+    makeScreenshot({
+      ... 
+      docker: true,
+    });
+
+    getSelector({
+      ...
+      docker: true,
+    });
 
 Important! [You should read this to make proper dockerfile](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-on-alpine)
 
